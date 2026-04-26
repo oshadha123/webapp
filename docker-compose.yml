@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: personal-records:latest
+    container_name: personal-records
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - db_data:/data
+    environment:
+      PORT: "8080"
+      DB_PATH: "/data/records.db"
+
+volumes:
+  db_data:
+    driver: local
