@@ -925,8 +925,8 @@ fn main() {
     let db   = Arc::new(Mutex::new(conn));
 
     let listener = TcpListener::bind(&addr).expect("Failed to bind");
-    println!("► Listening on http://{addr}");
-    println!("► DB at {db_path}");
+    println!("Listening on http://{addr}");
+    println!("DB at {db_path}");
 
     for stream in listener.incoming() {
         match stream {
